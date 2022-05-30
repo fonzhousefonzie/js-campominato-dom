@@ -23,7 +23,11 @@ function gridGen(num1, num2){
             if(!(this.className === 'cell bomb' || this.className === 'cell bg-info')){
                 if(bombList.includes(parseInt(this.id))){
                     this.classList.remove('flag');
-                    this.classList.add("bomb");
+                    for(let i = 0; i < 16; i++){
+                        if(parseInt(cell.id) === bombList[i]){
+                            cell.classList.add("bomb");
+                        }
+                    }
                     document.getElementById('endBanner').classList.remove('d-none');
                     document.getElementById('perso').classList.remove('d-none');
                 }else{
